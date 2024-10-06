@@ -1,0 +1,44 @@
+spring:
+  application:
+    name: authorPrj
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/
+      database: authorPrj
+server:
+  port: 8200
+logging:
+  level:
+    io:
+      github:
+        openfeign: DEBUG
+    feign:
+      client:
+        config:
+          Default: DEBUG
+          default:
+            loggerLevel: DEBUG
+    com:
+      healthcare:
+        appointment:
+          service:
+            AppointmentServiceApplication: DEBUG
+            controller:
+              AppointmentController: DEBUG
+            repository:
+              AppointmentRepository: DEBUG
+            service:
+              AppointmentService: DEBUG
+    org:
+      mongodb:
+        driver: DEBUG
+      springframework:
+        cloud:
+          openfeign:
+            FeignClient: DEBUG
+        data:
+          core:
+            MongoTemplate: DEBUG
+            MongoOperations: DEBUG
+#  pattern:
+#    console: "%msg%n"
